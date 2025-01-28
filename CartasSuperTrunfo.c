@@ -1,13 +1,6 @@
  #include <stdio.h>
 #include <string.h>
 
-
-// Desafio Super Trunfo - Países
-// Tema 1 - Cadastro das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de cadastro de cartas de cidades.
-// Siga os comentários para implementar cada parte do desafio.
-//Teste larissa
-       
 int main(){
 
 printf("Desafio Super Trunfo - Países - Cadastro de Cartas - Novato\n");
@@ -17,15 +10,18 @@ char pais[50] = "Brasil";
 
 //Primeiro Estado 1 Variáveis
 char  estado1[50];
-float populacao1;                    // populacao1 = Quantidades de Pessoas que Moram na Cidade
-double area1;                        // area1 = Tamanho da Aréa da Cidade
-double pib1;                        // pib1 = Produto Interno Bruto
-int npt1;                        //npt1 = Número e Pontos Turísticos
+double populacao1;                       // populacao1 = Quantidades de Pessoas que Moram na Cidade
+double area1;                           // area1 = Tamanho da Aréa da Cidade
+double pib1;                            // pib1 = Produto Interno Bruto
+int npt1;                                //npt1 = Número e Pontos Turísticos
+double dp1;                              //dp1 = Densidade Populacional
+double pib_cap1;                         //pib_cap1 = PIB per capita
+
 
 
   
         printf("Primeiro Vamos Criar os Estados e ás Cidade\n");
-         printf(" AVISO: USE SOMENTTE PONTOS (.), USE 'ENTER' DUAS VEZES APÓS DIGITAR Á PALAVRA PARA IR PARA PRÓXIMA PERGUNTA!!!\n");
+     
         printf("--------%s--------\n",pais);        
         
                      //Perguntas 1
@@ -34,31 +30,45 @@ int npt1;                        //npt1 = Número e Pontos Turísticos
         printf("1-Qual é o Nome do Primeiro Estado: \n");
         fgets(estado1, sizeof(estado1), stdin);
         estado1[strcspn(estado1, "\n")] = 0;  // Remove a quebra de linha que o fgets() captura
-        getchar();
+      
+        
                
     
     //populacao1
         printf("2-Qual é a População da Cidade: \n");
-        scanf("%f", &populacao1);
-        getchar();
+        scanf("%lf", &populacao1);
+        while (getchar() != '\n');
+        
     
     //area1
         printf("3-Qual é a Área dessa Cidade: \n");
         scanf("%lf", &area1);
-        getchar();
+        while (getchar() != '\n');
         
         
         
     //pib1
-        printf("4-Qual é o PIB desta Cidade:   (PIB SOMENTE DE 4 DIGITOS!!)\n");
+        printf("4-Qual é o PIB desta Cidade:\n");
         scanf("%lf", &pib1);
-        getchar();
+        while (getchar() != '\n');
        
                 
     //npt1
         printf("5-Número de Pontos Túristicos da Cidade:\n");
         scanf("%d", &npt1);
-        getchar(); // Limpa o buffer após a leitura de um número
+        while (getchar() != '\n'); // Limpa o buffer após a leitura de um número
+
+        
+        
+        
+        //dp1        Novas Variáveis
+        dp1 = (float)  populacao1 / area1 ; 
+       
+   
+        pib_cap1 = (float)  pib1 / populacao1 ;  
+
+     
+        
 
 
 //Primeiro Estado2  Variáveis
@@ -67,6 +77,9 @@ float populacao2;                    // populacao2 = Quantidades de Pessoas que 
 double area2;                        // area2 = Tamanho da Aréa da Cidade
 double pib2;                        // pib2 = Produto Interno Bruto
 int npt2;                        //npt2 = Número e Pontos Turísticos
+double dp2;                              //dp4 = Densidade Populacional
+double pib_cap2;                         //pib_cap4 = PIB per capita
+
 
             //Perguntas 2
         
@@ -74,37 +87,51 @@ int npt2;                        //npt2 = Número e Pontos Turísticos
        printf("6-Qual é o Nome do Segundo Estado:\n");
        fgets(estado2, sizeof(estado2), stdin);
        estado2[strcspn(estado2, "\n")] = 0;
-       getchar();
+       
       
     
     //populacao2  
         printf("7-Qual é a População da Segunda Cidade:\n");
         scanf("%f", &populacao2);
-        getchar();
+        while (getchar() != '\n');
                // Limpa o buffer após a leitura de um número
     
     //area2
         printf("8-Qual é a Área dessa Cidade: \n");
         scanf("%lf", &area2);
-        getchar();
+        while (getchar() != '\n');
      
     
     //pib2
-        printf("9-Qual é o PIB desta Cidade: (PIB SOMENTE DE 4 DIGITOS!!)(PIB SOMENTE DE 4 DIGITOS!!)\n");
+        printf("9-Qual é o PIB desta Cidade: \n");
         scanf("%lf", &pib2);
-        getchar();
+        while (getchar() != '\n');
      
     
     //npt2   
         printf("10-Número de Pontos Túristicos da Cidade:\n");
         scanf("%d", &npt2);
-         getchar();
+        while (getchar() != '\n');
+
+          
+    //dp2       Novas Variáveis
+        dp2 = (float)  populacao2 / area2 ;
+         
+        pib_cap2 = (double)  pib2 / populacao2 ;
+       
+
+
+        
          //Primeiro Estado3  Variáveis
+
 char  estado3[50];
 float populacao3;                    // populacao3 = Quantidades de Pessoas que Moram na Cidade
 double area3;                        // area3 = Tamanho da Aréa da Cidade
 double pib3;                        // pib3 = Produto Interno Bruto
 int npt3;                        //npt3 = Número e Pontos Turísticos
+double dp3;                              //dp3 = Densidade Populacional
+double pib_cap3;                         //pib_cap3 = PIB per capita
+
 
        
                 //Perguntas 3
@@ -113,84 +140,104 @@ int npt3;                        //npt3 = Número e Pontos Turísticos
        printf("11-Qual é o Nome do Terceiro Estado:\n");
         fgets(estado3, sizeof(estado3), stdin);
         estado3[strcspn(estado3, "\n")] = 0;
-        getchar();       // Lê o nome do primeiro estado ( com espaços )
+               // Lê o nome do primeiro estado ( com espaços )
      
      //populacao3
         printf("12-Qual é a População da Terceira Cidade: \n");
         scanf("%f", &populacao3);
-        getchar();
+        while (getchar() != '\n');
     
      
      //area3
         printf("13-Qual é a Área dessa Cidade: \n");
         scanf("%lf", &area3);
-        getchar();
+        while (getchar() != '\n');
     
     
     //pib3
-        printf("14-Qual é o PIB desta Cidade:   (PIB SOMENTE DE 4 DIGITOS!!)\n");
+        printf("14-Qual é o PIB desta Cidade:\n");
         scanf("%lf", &pib3);
-        getchar();
+        while (getchar() != '\n');
 
     //npt3
         printf("15-Número de Pontos Túristicos da Cidade:\n");
         scanf("%d", &npt3);
-        getchar(); 
+       while (getchar() != '\n');
+
+        
+    //dp3      Novas Variáveis 
+        dp3 = (double)  populacao3 / area3;
+        
+        pib_cap3 = (double)  pib3 / populacao3;
+      
+
+
           //Primeiro Estado4  Variáveis
 char  estado4[50];
-float populacao4;                    // populacao4 = Quantidades de Pessoas que Moram na Cidade
-double area4;                        // area4 = Tamanho da Aréa da Cidade
-double pib4;                        // pib4 = Produto Interno Bruto
-int npt4;                        //npt4 = Número e Pontos Turísticos
+double populacao4;                        //populacao4 = Quantidades de Pessoas que Moram na Cidade
+double area4;                            //area4 = Tamanho da Aréa da Cidade
+double pib4;                             //pib4 = Produto Interno Bruto
+int npt4;                                //npt4 = Número e Pontos Turísticos
+double dp4;                              //dp4 = Densidade Populacional
+double pib_cap4;                         //pib_cap4 = PIB per capita
 
 
-                    //Perguntas 4
+                        //Perguntas 4
     
     //estado4
        printf("16-Qual é o Nome do Quarto Estado:\n");
        fgets(estado4, sizeof(estado4), stdin);
        estado4[strcspn(estado4, "\n")] = 0;
 
-       getchar();
       //populaca4
         printf("17-Qual é a População da Quarta Cidade:\n");
         scanf("%f", &populacao4);
-        getchar();
+        while (getchar() != '\n');
             
       //area4
         printf("18-Qual é a Área dessa Cidade:\n");
         scanf("%lf", &area4);
-        getchar();
+        while (getchar() != '\n');
       
 
     //pib4
-        printf("19-Qual é o PIB desta Cidade:   (PIB SOMENTE DE 4 DIGITOS!!)\n");
+        printf("19-Qual é o PIB desta Cidade:\n");
         scanf("%lf", &pib4);
-        getchar();
+        while (getchar() != '\n');
        
 
       //npt4
         printf("20-Número de Pontos Túristicos da Cidade:\n");
         scanf("%d", &npt4);
-        getchar();
+        while (getchar() != '\n');
+
+
+        
+     //dp4        Novas Variáveis   
+        dp4 = (double)  populacao4 / area4;
+    
+        pib_cap4 = (double)  pib4/ populacao4;
+       
+
+
+
+       
+                              //Resultados
 
             printf("------------Resultados-----------\n");
         
-        printf("1-Estado: %s\n 2-População: %f Milhões\n 3-Área: %f km²\n 4-PIB: R$ %lf\n 5-Pontos Turísticos: %d\n", estado1, populacao1, area1, pib1, npt1);
-
+        printf("1-Estado: %s\n 2-População: %.3f Habitantes\n 3-Área: %.2f km²\n 4-PIB: R$ %.2lf\n 5-Pontos Turísticos: %d\n 6-Densidade Populacional: %.3fkm²\n 7-PIB PER CAPITAL: %.4f\n", estado1, populacao1, area1, pib1, npt1,  dp1, pib_cap1);
+        
         printf("--------------------------\n");
         
-        printf("6-Estado: %s\n 7-População: %f  Milhões\n 8-Área: %f km²v\n 9-PIB: R$ %lf\n 10-Pontos Turísticos: %d\n", estado2, populacao2, area2, pib2, npt2);
-        
+         printf("8-Estado: %s\n 9-População: %.3f Habitantes\n 10-Área: %.2f km²\n 11-PIB: R$ %.2lf\n 12-Pontos Turísticos: %d\n 13-Densidade Populacional: %.3fkm²\n 14-PIB PER CAPITAL: %.4f\n", estado2, populacao2, area2, pib2, npt2,  dp2, pib_cap2);
         printf("---------------------------\n");
        
-        printf("11-Estado: %s\n 12-População: %f  Milhões\n 13-Área: %f km²\n 14-PIB: R$ %lf\n 15-Pontos Turísticos: %d\n", estado3, populacao3, area3, pib3, npt3);
-        
+         printf("15-Estado: %s\n 16-População: %.3f Habitantes\n 17-Área: %.2f km²\n 18-PIB: R$ %.2lf\n 19-Pontos Turísticos: %d\n 20-Densidade Populacional: %.3fkm²\n 21-PIB PER CAPITAL: %.4f\n", estado3, populacao3, area3, pib3, npt3,  dp3, pib_cap3);
+       
         printf("---------------------------\n");
         
-        printf("16-Estado: %s\n 17-População: %f  Milhões\n 18-Área: %f km²\n 19-PIB: R$ %lf\n 20-Pontos Turísticos: %d\n", estado4, populacao4, area4, pib4, npt4);
-
-
+         printf("22-Estado: %s\n 23-População: %.3f Habitantes\n 24-Área: %.2f km²\n 25-PIB: R$ %.2lf\n 26-Pontos Turísticos: %d\n 27-Densidade Populacional: %.3fkm²\n 28-PIB PER CAPITAL: %.4f\n", estado4, populacao4, area4, pib4, npt4,  dp4, pib_cap4);
 
     return 0;
 
@@ -200,15 +247,9 @@ int npt4;                        //npt4 = Número e Pontos Turísticos
 }
 
 
-    // Sugestão: Defina variáveis separadas para cada atributo da cidade.
-    // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
-    
-    // Cadastro das Cartas:
-    // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
-    // Solicite ao usuário que insira as informações de cada cidade, como o código, nome, população, área, etc.
-    
-    // Exibição dos Dados das Cartas:
-    // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
-    // Exiba os valores inseridos para cada atributo da cidade, um por linha.
 
-   
+
+
+
+
+
