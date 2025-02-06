@@ -1,57 +1,58 @@
- #include <stdio.h>
+#include <stdio.h>
 #include <string.h>
+#include <math.h> // Para usar a função fabs()
 
-     //Estado 1 e 2       //Sistema do Vencedor Batalha 1
- int comparar_populacao(double populacao1, double populacao2) {
+// Definindo uma margem de erro para comparação de double
+#define EPSILON 0.000001
+
+// Função de comparação com tolerância para double
+int comparar_populacao(double populacao1, double populacao2) {
+    if (fabs(populacao1 - populacao2) < EPSILON) return 0; // Empate (dentro da margem de erro)
     if (populacao1 > populacao2) return 1;
-    if (populacao1 < populacao2) return 2;
-    return 0;
-    }
+    return 2;
+}
 
 int comparar_area(double area1, double area2) {
+    if (fabs(area1 - area2) < EPSILON) return 0; // Empate
     if (area1 > area2) return 1;
-    if (area1 < area2) return 2;
-    return 0;
+    return 2;
 }
 
-int comparar_pib(double pib1, double pib2){
+int comparar_pib(double pib1, double pib2) {
+    if (fabs(pib1 - pib2) < EPSILON) return 0; // Empate
     if (pib1 > pib2) return 1;
-    if (pib1 < pib2) return 2;
-    return 0;
+    return 2;
 }
- 
+
 int comparar_npt(int npt1, int npt2) {
+    if (npt1 == npt2) return 0; // Empate para inteiros
     if (npt1 > npt2) return 1;
-    if (npt1 < npt2) return 2;
-    return 0;
- }
-      //Estado 3 e 4      //Sistema do Vencedor Batalha 2
+    return 2;
+}
 
-int comparar_populacao1(double populacao3, double populacao4){
+int comparar_populacao1(double populacao3, double populacao4) {
+    if (fabs(populacao3 - populacao4) < EPSILON) return 0; // Empate
     if (populacao3 > populacao4) return 3;
-    if (populacao3 < populacao4) return 4;
-    return 0;
+    return 4;
 }
 
-int comparar_area1(double area3, double area4){
+int comparar_area1(double area3, double area4) {
+    if (fabs(area3 - area4) < EPSILON) return 0; // Empate
     if (area3 > area4) return 3;
-    if (area3 < area4) return 4;
-    return 0;
+    return 4;
 }
 
-int comparar_pib1(double pib3, double pib4){
+int comparar_pib1(double pib3, double pib4) {
+    if (fabs(pib3 - pib4) < EPSILON) return 0; // Empate
     if (pib3 > pib4) return 3;
-    if (pib3 < pib4) return 4;
-    return 0;
+    return 4;
 }
 
-int comparar_npt1(int npt3, int npt4){
+int comparar_npt1(int npt3, int npt4) {
+    if (npt3 == npt4) return 0; // Empate para inteiros
     if (npt3 > npt4) return 3;
-    if (npt3 , npt4) return 4;
-    return 0;
+    return 4;
 }
-
-                
 
 int main() {
     printf("Desafio Super Trunfo - Países - Cadastro de Cartas - Novato\n");
@@ -200,99 +201,99 @@ int main() {
 
     // Cálculos
     dp4 = populacao4 / area4;  
-    pib_cap4 = pib4 / populacao4; 
+    pib_cap4 = pib4 / populacao4;  
 
 
-            //Sistema do Vencedor Batalha 1
-   int vencedor_populacao = comparar_populacao(populacao1, populacao2); 
+    // Sistema do Vencedor Batalha 1
+    int vencedor_populacao = comparar_populacao(populacao1, populacao2); 
     if (vencedor_populacao == 1) {
-    printf("Vencedor População: %s\n", estado1);
-    printf("-----------------\n");
-} else if (vencedor_populacao == 2) {
-    printf("Vencedor População: %s\n", estado2);
-    printf("-----------------\n");
-} else {
-    printf("Empate\n");
-}
-   
-   int vencedor_area = comparar_area(area1, area2);
-    if (vencedor_area == 1) {
-    printf("Vencedor Área: %s\n", estado1);
-    printf("-----------------\n");
-} else if (vencedor_area == 2) {
-    printf("Vencedor Área: %s\n", estado2);
-    printf("-----------------\n");
-} else {
-    printf("Empate\n");
-}
-    
-int vencedor_pib = comparar_pib(pib1, pib2);
-     if (vencedor_pib == 1) {
-    printf("Vencedor PIB: %s\n", estado1);
-    printf("-----------------\n");
-} else if (vencedor_pib == 2) {
-    printf("Vencedor PIB: %s\n", estado2);
-    printf("-----------------\n");
-} else {
-     printf("Empate\n");
-}
-int vencedor_npt = comparar_npt(npt1, npt2);
-    if (vencedor_npt == 1) {
-    printf("Vencedor Pontos Turísticos: %s\n", estado1);
-    printf("-----------------\n");
-}  else if (vencedor_npt == 2) {
-    printf("Vencedor Pontos Turísticos: %s\n", estado2);
+        printf("Vencedor População: %s\n", estado1);
+        printf("-----------------\n");
+    } else if (vencedor_populacao == 2) {
+        printf("Vencedor População: %s\n", estado2);
+        printf("-----------------\n");
+    } else {
+        printf("Empate\n");
+    }
 
-} 
-      //Sistema do Vencedor Batalha 2
+    int vencedor_area = comparar_area(area1, area2);
+    if (vencedor_area == 1) {
+        printf("Vencedor Área: %s\n", estado1);
+        printf("-----------------\n");
+    } else if (vencedor_area == 2) {
+        printf("Vencedor Área: %s\n", estado2);
+        printf("-----------------\n");
+    } else {
+        printf("Empate\n");
+    }
+
+    int vencedor_pib = comparar_pib(pib1, pib2);
+    if (vencedor_pib == 1) {
+        printf("Vencedor PIB: %s\n", estado1);
+        printf("-----------------\n");
+    } else if (vencedor_pib == 2) {
+        printf("Vencedor PIB: %s\n", estado2);
+        printf("-----------------\n");
+    } else {
+        printf("Empate\n");
+    }
+
+    int vencedor_npt = comparar_npt(npt1, npt2);
+    if (vencedor_npt == 1) {
+        printf("Vencedor Pontos Turísticos: %s\n", estado1);
+        printf("-----------------\n");
+    } else if (vencedor_npt == 2) {
+        printf("Vencedor Pontos Turísticos: %s\n", estado2);
+    } else {
+        printf("Empate\n");
+    }
+
+    // Sistema do Vencedor Batalha 2
     printf("<------- Batalha 2 ------->\n");
 
-int vencedor_populacao1 = comparar_populacao1(populacao3, populacao4);
+    int vencedor_populacao1 = comparar_populacao1(populacao3, populacao4);
     if (vencedor_populacao1 == 3) {
-    printf("Vencedor População: %s\n", estado3);
-    printf("-----------------\n");
-} else if (vencedor_populacao1 == 4) {
-    printf("Vencedor População: %s\n", estado4);
-    printf("-----------------\n");   
-} else {
-    printf("Empate\n");
-}
+        printf("Vencedor População: %s\n", estado3);
+        printf("-----------------\n");
+    } else if (vencedor_populacao1 == 4) {
+        printf("Vencedor População: %s\n", estado4);
+        printf("-----------------\n");
+    } else {
+        printf("Empate\n");
+    }
 
-int vencedor_area1 = comparar_area1(area3, area4);
+    int vencedor_area1 = comparar_area1(area3, area4);
     if (vencedor_area1 == 3) {
-    printf("Vencedor Área: %s\n", estado3);
-    printf("-----------------\n");
-} else if (vencedor_area1 == 4){
-    printf("Vencedor Área: %s\n", estado4);
-    printf("-----------------\n");
-} else {
-    printf("Empate\n");
-}
+        printf("Vencedor Área: %s\n", estado3);
+        printf("-----------------\n");
+    } else if (vencedor_area1 == 4) {
+        printf("Vencedor Área: %s\n", estado4);
+        printf("-----------------\n");
+    } else {
+        printf("Empate\n");
+    }
 
-int vencedor_pib1 = comparar_pib1(pib3, pib4);
+    int vencedor_pib1 = comparar_pib1(pib3, pib4);
     if (vencedor_pib1 == 3) {
-    printf("Vencedor PIB: %s\n", estado3);
-    printf("-----------------\n");
-} else if (vencedor_pib1 == 4) {
-    printf("Vencedor PIB: %s\n", estado4);
-    printf("-----------------\n");
-} else {
-    printf("Empate\n");
-}
+        printf("Vencedor PIB: %s\n", estado3);
+        printf("-----------------\n");
+    } else if (vencedor_pib1 == 4) {
+        printf("Vencedor PIB: %s\n", estado4);
+        printf("-----------------\n");
+    } else {
+        printf("Empate\n");
+    }
 
-int vencedor_npt1 = comparar_npt1(npt3, npt4);
+    int vencedor_npt1 = comparar_npt1(npt3, npt4);
     if (vencedor_npt1 == 3) {
-    printf("Vencedor Pontos Turísticos: %s\n", estado3);
-    printf("-----------------\n");   
-} else if (vencedor_npt1 == 4) {
-    printf("Vencedor Pontos Turísticos: %s\n", estado4);
-    printf("-----------------\n");
-} else {
-    printf("Empate\n");  
+        printf("Vencedor Pontos Turísticos: %s\n", estado3);
+        printf("-----------------\n");
+    } else if (vencedor_npt1 == 4) {
+        printf("Vencedor Pontos Turísticos: %s\n", estado4);
+    } else {
+        printf("Empate\n");
+    }
+
+    return 0;
 }
-
-
-   
-}
-
 
